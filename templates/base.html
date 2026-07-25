@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ page_description }}">
+<link rel="canonical" href="{{ site_url }}{{ canonical_path }}">
+
+<!-- Open Graph -->
+<meta property="og:type" content="{{ og_type|default('website') }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_description }}">
+<meta property="og:url" content="{{ site_url }}{{ canonical_path }}">
+<meta property="og:site_name" content="Yes to Jesus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page_title }}">
+<meta name="twitter:description" content="{{ page_description }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+{% if json_ld %}
+<script type="application/ld+json">
+{{ json_ld|safe }}
+</script>
+{% endif %}
+</head>
+<body class="{{ body_class|default('') }}">
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">Yes<span>&nbsp;to&nbsp;</span>Jesus</a>
+    <nav class="site-nav">
+      <a href="/#days">21 Days</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+
+{% block content %}{% endblock %}
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h5>Yes to Jesus</h5>
+        <p>A free, 21-day devotional for new believers &mdash; day-by-day help for anyone who just said yes to Jesus and isn't sure what comes next.</p>
+        <p>This content is adapted from <strong>You Said Yes</strong>, a free resource from Life.Church's Open Network. <a href="https://open.life.church/" target="_blank" rel="noopener">Churches can download the original here.</a> You can also follow along day-by-day on the <a href="https://www.bible.com/app" target="_blank" rel="noopener">YouVersion Bible App</a>.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="/">Start Day 1</a></li>
+          <li><a href="/about/">About this project</a></li>
+          <li><a href="https://www.bible.com/app" target="_blank" rel="noopener">Get the YouVersion Bible App</a></li>
+          <li><a href="https://www.bible.com/reading-plans/47309-you-said-yes-how-do-i-start-my-new-life-with-jesus" target="_blank" rel="noopener">Open this plan in the app</a></li>
+          <li><a href="https://open.life.church/" target="_blank" rel="noopener">Life.Church Open Network</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; {{ year }} Yes to Jesus. Content adapted with attribution from Life.Church's "You Said Yes," used under Life.Church Open Network's free-resource terms.
+    </div>
+  </div>
+</footer>
+<script src="/js/live-scripture.js" defer></script>
+</body>
+</html>

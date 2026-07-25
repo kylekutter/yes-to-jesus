@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="day-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Yes to Jesus</a> &rsaquo; Week {{ day.week }} &rsaquo; Day {{ day.day }}</div>
+    <div class="day-numeral-wrap">
+      <span class="day-word">Day</span>
+      <span class="day-numeral">{{ "%02d"|format(day.day) }}</span>
+    </div>
+    <h1>{{ day.title }}</h1>
+    <p class="lede">{{ day.summary }}</p>
+    {% if day.scripture %}
+    <div>
+      {% for s in day.scripture %}
+      <a class="scripture-chip" href="{{ s.link }}" target="_blank" rel="noopener">
+        <img class="icon" src="/img/icons/book.svg" alt="" width="16" height="16"> Read {{ s.ref }} ({{ s.translation }}) on YouVersion
+      </a>
+      {% endfor %}
+    </div>
+    {% for s in day.scripture %}
+      {% if s.api_ref %}
+      <div class="live-scripture" data-yv-ref="{{ s.api_ref }}"></div>
+      {% endif %}
+    {% endfor %}
+    {% endif %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <article class="prose">
+      {% for blk in blocks %}
+        {% if blk.type == 'paragraphs' %}
+          {% for p in blk.entries %}<p>{{ p|safe }}</p>{% endfor %}
+        {% elif blk.type == 'quote' %}
+          <blockquote class="scripture">
+            <img class="icon" src="/img/icons/book.svg" alt="">
+            &ldquo;{{ blk.text }}&rdquo;<cite>{{ blk.ref }}</cite>
+          </blockquote>
+        {% elif blk.type == 'list' %}
+          <ul class="day-list">{% for item in blk.entries %}<li>{{ item|safe }}</li>{% endfor %}</ul>
+        {% elif blk.type == 'list_headed' %}
+          {% for item in blk.entries %}
+          <div class="headed-item"><h4>{{ item.head }}</h4><p>{{ item.body }}</p></div>
+          {% endfor %}
+        {% elif blk.type == 'reflection' %}
+          <div class="callout">
+            <img class="icon-badge" src="/img/icons/pause.svg" alt="">
+            <div class="callout-body"><h4>Pause to Consider</h4><p>{{ blk.text }}</p></div>
+          </div>
+        {% elif blk.type == 'prayer' %}
+          <div class="callout">
+            <img class="icon-badge" src="/img/icons/praying-hands.svg" alt="">
+            <div class="callout-body"><h4>Pray With Your Own Words, or Try This</h4><p>{{ blk.text }}</p></div>
+          </div>
+        {% elif blk.type == 'next_steps' %}
+          <div class="callout">
+            <img class="icon-badge" src="/img/icons/next-arrow.svg" alt="">
+            <div class="callout-body">
+              <h4>Possible Next Steps</h4>
+              <ul class="day-list">{% for item in blk.entries %}<li>{{ item }}</li>{% endfor %}</ul>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      <div class="callout">
+        <img class="icon-badge" src="/img/icons/book.svg" alt="">
+        <div class="callout-body">
+          <h4>Follow Along in the App</h4>
+          <p>Read this exact day inside the free YouVersion Bible App, with your own highlights and reminders &mdash; via the official <a href="https://www.bible.com/reading-plans/47309-you-said-yes-how-do-i-start-my-new-life-with-jesus" target="_blank" rel="noopener">&ldquo;You Said Yes&rdquo; reading plan</a>.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<nav class="day-nav">
+  <div class="container" style="display:flex; gap:1rem;">
+    {% if prev_day %}
+    <a class="prev" href="/day/{{ prev_day.slug }}/"><img class="icon" src="/img/icons/next-arrow.svg" alt=""><span><span class="label">Day {{ prev_day.day }}</span><span class="title">{{ prev_day.title }}</span></span></a>
+    {% else %}
+    <a class="prev" href="/"><img class="icon" src="/img/icons/next-arrow.svg" alt=""><span><span class="label">Back</span><span class="title">Devotional Home</span></span></a>
+    {% endif %}
+    {% if next_day %}
+    <a class="next" href="/day/{{ next_day.slug }}/"><img class="icon" src="/img/icons/next-arrow.svg" alt=""><span><span class="label">Day {{ next_day.day }}</span><span class="title">{{ next_day.title }}</span></span></a>
+    {% else %}
+    <a class="next" href="/about/"><img class="icon" src="/img/icons/next-arrow.svg" alt=""><span><span class="label">You made it</span><span class="title">About this project</span></span></a>
+    {% endif %}
+  </div>
+</nav>
+{% endblock %}

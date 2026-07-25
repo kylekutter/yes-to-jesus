@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <img class="hero-icon" src="/img/icons/rising-sun.svg" alt="" width="56" height="56">
+    <h1>You said yes to Jesus.<br>Now what?</h1>
+    <p>A free, day-by-day devotional for new believers &mdash; real answers to the questions everyone asks after choosing to follow Jesus, with scripture from the YouVersion Bible App.</p>
+    <a class="btn" href="/day/{{ days[0].slug }}/">Start with Day 1 &rarr;</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="prose">
+      <p class="lede">Inside, you'll discover more about what your decision to follow Jesus means. Each day includes a short reading from the Bible and something to try for yourself &mdash; answering questions like &ldquo;what does this mean,&rdquo; &ldquo;what should I do,&rdquo; and &ldquo;what does this change?&rdquo;</p>
+      <p>This is organized into 21 days, but there's no rush &mdash; go at whatever pace helps you grow. You might finish in a week, in 100 days, or keep coming back to it again and again. Finishing isn't the point. Finding direction, growing in confidence, and starting real conversations about what you're learning &mdash; that's what matters.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="callout" style="margin:0;">
+      <img class="icon-badge" src="/img/icons/book.svg" alt="" width="44" height="44">
+      <div class="callout-body">
+        <h4>Read Along in the YouVersion Bible App</h4>
+        <p>Every scripture on this site links straight to YouVersion, but the richest way to go through this devotional is inside the free Bible App itself &mdash; with your own highlights, notes, and daily reminders.</p>
+        <p style="margin-top:1rem;">
+          <a class="btn" style="background:var(--color-accent); color:#fff; margin-right:0.75rem;" href="https://www.bible.com/app" target="_blank" rel="noopener">Get the Bible App</a>
+          <a class="btn" style="background:transparent; border:2px solid var(--color-ink); color:var(--color-ink);" href="https://www.bible.com/reading-plans/47309-you-said-yes-how-do-i-start-my-new-life-with-jesus" target="_blank" rel="noopener">Open This Plan in the App</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="days">
+  <div class="container">
+    {% for week_num, week_days in weeks %}
+    <div class="week-group">
+      <div class="week-heading w{{ week_num }}">
+        <span class="week-num">Week {{ week_num }}</span>
+        <h2>{{ week_titles[week_num] }}</h2>
+      </div>
+      <div class="day-grid">
+        {% for d in week_days %}
+        <a class="day-card" href="/day/{{ d.slug }}/" style="--card-accent: var(--color-{{ week_colors[week_num] }});">
+          <span class="day-num">Day {{ d.day }}</span>
+          <h3>{{ d.title }}</h3>
+          <p>{{ d.summary }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
