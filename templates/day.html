@@ -17,11 +17,6 @@
       </a>
       {% endfor %}
     </div>
-    {% for s in day.scripture %}
-      {% if s.api_ref %}
-      <div class="live-scripture" data-yv-ref="{{ s.api_ref }}"></div>
-      {% endif %}
-    {% endfor %}
     {% endif %}
   </div>
 </section>
@@ -33,10 +28,12 @@
         {% if blk.type == 'paragraphs' %}
           {% for p in blk.entries %}<p>{{ p|safe }}</p>{% endfor %}
         {% elif blk.type == 'quote' %}
-          <blockquote class="scripture">
-            <img class="icon" src="/img/icons/book.svg" alt="">
-            &ldquo;{{ blk.text }}&rdquo;<cite>{{ blk.ref }}</cite>
-          </blockquote>
+          <div class="scripture-card-mount"
+               {% if blk.api_ref %}data-yv-widget data-reference="{{ blk.api_ref }}" data-default-version-id="{{ blk.default_version_id }}"{% endif %}>
+            {% if not blk.api_ref %}
+            <blockquote class="scripture">&ldquo;{{ blk.text }}&rdquo;<cite>{{ blk.ref }}</cite></blockquote>
+            {% endif %}
+          </div>
         {% elif blk.type == 'list' %}
           <ul class="day-list">{% for item in blk.entries %}<li>{{ item|safe }}</li>{% endfor %}</ul>
         {% elif blk.type == 'list_headed' %}

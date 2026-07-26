@@ -272,29 +272,21 @@ img, svg { max-width: 100%; display: block; }
 .scripture-chip:hover { border-color: var(--color-accent); }
 .scripture-chip .icon { color: var(--color-accent); width: 1.1em; height: 1.1em; }
 
-.live-scripture {
-  display: none;
-  margin: 0.75rem 0 0;
-  padding: 0.9rem 1.1rem;
-  background: #fff;
-  border: 1px dashed var(--color-accent);
-  border-radius: var(--radius);
+.scripture-card-mount {
+  min-height: 96px;
+  margin: 1.75rem 0;
   max-width: var(--measure);
 }
-.live-scripture.is-loaded { display: block; }
-.live-scripture-text {
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: 0.98rem;
-  margin: 0 0 0.4rem;
+.scripture-card-mount [data-slot="yv-bible-renderer"] {
+  font-family: var(--font-body) !important;
 }
-.live-scripture-credit {
-  font-family: var(--font-heading);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-accent);
-  margin: 0;
+
+/* Theme the YouVersion Platform SDK to match our palette instead of its
+   own defaults — these are the SDK's documented override hooks. */
+[data-yv-sdk] {
+  --yv-primary: var(--color-accent);
+  --yv-background: #fff;
+  --yv-reader-font-family: "Lora", serif;
 }
 
 blockquote.scripture {

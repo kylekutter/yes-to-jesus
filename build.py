@@ -23,6 +23,18 @@ def api_ref_from_link(link):
     m = API_REF_RE.search(link)
     return m.group(1) if m else None
 
+
+# Bible version IDs in the YouVersion Platform API's shared catalog (same
+# numbering as bible.com). Always *default* to the freely-licensed Berean
+# Standard Bible (BSB) so a real visitor never sees an access-denied error —
+# once Biblica's Fast-track license is accepted, NIV (111) becomes available
+# as a picker option, but isn't the initial default until that's confirmed.
+FALLBACK_VERSION_ID = 3034  # Berean Standard Bible — public domain
+
+
+def default_version_id_for(translation):
+    return FALLBACK_VERSION_ID
+
 SITE_URL = os.environ.get("SITE_URL", "https://yestojesus.us")
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PUBLIC = os.path.join(ROOT, "public")
@@ -36,15 +48,31 @@ BLOCK_LIST_HEADED_KEYS = ("list_headed", "list_headed2")
 
 
 def blocks_for_day(day):
-    """Walk the day dict in insertion order and emit typed render blocks."""
+    """Walk the day dict in insertion order and emit typed render blocks.
+
+    Each `quote*` key pairs 1:1, in order, with the day's `scripture` list
+    (verified by content authoring) — so we can reuse that entry's already
+    -parsed api_ref/default_version_id for the live widget instead of
+    re-parsing the free-text quote reference.
+    """
     blocks = []
+    scripture = day.get("scripture", [])
+    quote_idx = 0
     for key, value in day.items():
         if key in META_KEYS:
             continue
         if key in BLOCK_PARAGRAPH_KEYS:
             blocks.append({"type": "paragraphs", "entries": value})
         elif key in BLOCK_QUOTE_KEYS:
-            blocks.append({"type": "quote", "text": value["text"], "ref": value["ref"]})
+            s = scripture[quote_idx] if quote_idx < len(scripture) else None
+            quote_idx += 1
+            blocks.append({
+                "type": "quote",
+                "text": value["text"],
+                "ref": value["ref"],
+                "api_ref": s["api_ref"] if s else None,
+                "default_version_id": s["default_version_id"] if s else FALLBACK_VERSION_ID,
+            })
         elif key == "list":
             blocks.append({"type": "list", "entries": value})
         elif key in BLOCK_LIST_HEADED_KEYS:
@@ -164,9 +192,10 @@ def main():
     # ---- Day pages ----
     tmpl = env.get_template("day.html")
     for i, day in enumerate(days):
-        blocks = blocks_for_day(day)
         for s in day.get("scripture", []):
             s["api_ref"] = api_ref_from_link(s["link"])
+            s["default_version_id"] = default_version_id_for(s["translation"])
+        blocks = blocks_for_day(day)
         prev_day = days[i - 1] if i > 0 else None
         next_day = days[i + 1] if i < len(days) - 1 else None
         url = f"{SITE_URL}/day/{day['slug']}/"

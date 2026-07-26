@@ -492,7 +492,10 @@ DAYS = [
         "slug": "what-happens-next",
         "title": "What Happens Next?",
         "summary": "You said yes. Now keep saying yes to Jesus every day—seek progress, not perfection.",
-        "scripture": [{"ref": "Philippians 1:6, 9", "translation": "NLT", "link": yv_link("PHP", "1.6", "NLT")}],
+        "scripture": [
+            {"ref": "Philippians 1:6", "translation": "NLT", "link": yv_link("PHP", "1.6", "NLT")},
+            {"ref": "Philippians 1:9", "translation": "NLT", "link": yv_link("PHP", "1.9", "NLT")},
+        ],
         "body": [
             "You're almost finished reading this book, but your story is just beginning. We're so proud of you for going through this journey. Today, we'd like to share these words from an early Jesus follower named Paul.",
         ],
