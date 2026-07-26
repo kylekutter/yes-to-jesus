@@ -181,7 +181,7 @@ img, svg { max-width: 100%; display: block; }
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 1.4rem;
+  margin-top: 2.5rem;
   padding: 0.6rem 1.2rem;
   border-radius: 999px;
   border: 2px solid var(--color-accent);
@@ -206,6 +206,9 @@ img, svg { max-width: 100%; display: block; }
   margin-bottom: 1.4rem;
 }
 .week-heading .week-num {
+  display: inline-block;
+  flex-shrink: 0;
+  white-space: nowrap;
   font-family: var(--font-heading);
   color: #fff;
   font-weight: 700;
@@ -427,21 +430,28 @@ blockquote.scripture cite {
 }
 
 .callout {
+  position: relative;
   background: #fff;
   border: 1px solid var(--color-border);
   border-left: 4px solid var(--color-accent);
   border-radius: var(--radius);
   padding: 1.5rem 1.75rem;
   margin: 2.25rem 0;
-  display: flex;
-  gap: 1.1rem;
-  align-items: flex-start;
 }
 .callout .icon-badge {
+  display: block;
   width: 2.75rem;
   height: 2.75rem;
-  flex-shrink: 0;
+  margin: 0 0 0.85rem;
   color: var(--color-ink);
+}
+@media (min-width: 900px) {
+  .callout .icon-badge {
+    position: absolute;
+    left: -3.6rem;
+    top: 1.45rem;
+    margin: 0;
+  }
 }
 .callout-body h2 {
   font-family: var(--font-heading);
@@ -664,8 +674,9 @@ blockquote.scripture cite {
 @media (max-width: 640px) {
   body { font-size: 16.5px; }
   .site-footer .footer-grid { grid-template-columns: 1fr; }
-  .day-nav { flex-direction: column; }
+  .day-nav .container { flex-direction: column; }
+  .day-nav a { width: 100%; }
   .day-nav .next { text-align: left; flex-direction: row; }
+  .day-nav .next span { text-align: left; }
   .day-word { font-size: 1.9rem; margin-right: -0.4em; }
-  .callout { flex-direction: column; }
 }
