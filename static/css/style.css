@@ -441,6 +441,10 @@ img, svg { max-width: 100%; display: block; }
 .scripture-card-mount section[class~="yv:p-6"] {
   padding: 1.1rem 1.35rem !important;
 }
+.scripture-card-mount [class~="yv:card-content"] {
+  max-width: none !important;
+  width: 100% !important;
+}
 .scripture-card-mount [data-slot="yv-bible-renderer"] {
   font-family: var(--font-body) !important;
 }
