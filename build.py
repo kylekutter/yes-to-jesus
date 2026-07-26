@@ -88,6 +88,23 @@ def blocks_for_day(day):
     return blocks
 
 
+def reading_minutes_for(blocks):
+    """Rough estimate at ~200 wpm, counting body/quote/list text only."""
+    word_count = 0
+    for blk in blocks:
+        if blk["type"] == "paragraphs":
+            word_count += sum(len(p.split()) for p in blk["entries"])
+        elif blk["type"] == "quote":
+            word_count += len(blk["text"].split())
+        elif blk["type"] in ("list", "next_steps"):
+            word_count += sum(len(item.split()) for item in blk["entries"])
+        elif blk["type"] == "list_headed":
+            word_count += sum(len(item["head"].split()) + len(item["body"].split()) for item in blk["entries"])
+        elif blk["type"] in ("reflection", "prayer"):
+            word_count += len(blk["text"].split())
+    return max(1, round(word_count / 200))
+
+
 def write(path, text):
     full = os.path.join(PUBLIC, path.lstrip("/"))
     os.makedirs(os.path.dirname(full), exist_ok=True)
@@ -170,7 +187,7 @@ def main():
         weeks.setdefault(d["week"], []).append(d)
     weeks_sorted = sorted(weeks.items())
 
-    base_ctx = {"site_url": SITE_URL, "year": BUILD_YEAR}
+    base_ctx = {"site_url": SITE_URL, "year": BUILD_YEAR, "first_day_slug": days[0]["slug"]}
     week_colors = {1: "blue", 2: "terracotta", 3: "sage"}
 
     # ---- Home page ----
@@ -211,6 +228,7 @@ def main():
             week_title=content.WEEK_TITLES[day["week"]],
             prev_day=prev_day,
             next_day=next_day,
+            reading_minutes=reading_minutes_for(blocks),
             body_class=f"week-{day['week']}",
         )
         write(f"day/{day['slug']}/index.html", html)

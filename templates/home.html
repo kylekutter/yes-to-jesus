@@ -2,10 +2,11 @@
 {% block content %}
 <section class="hero">
   <div class="container">
-    <img class="hero-icon" src="/img/icons/rising-sun.svg" alt="" width="56" height="56">
+    <img class="hero-icon" src="/img/icons/rising-sun.svg" alt="" width="72" height="72">
+    <div class="hero-eyebrow">You Said Yes</div>
     <h1>You said yes to Jesus.<br>Now what?</h1>
-    <p>A free, day-by-day devotional for new believers &mdash; real answers to the questions everyone asks after choosing to follow Jesus, with scripture from the YouVersion Bible App.</p>
-    <a class="btn" href="/day/{{ days[0].slug }}/">Start with Day 1 &rarr;</a>
+    <p>You don't have to figure everything out today. This free 21-day guide helps you understand what it means to follow Jesus, one day at a time.</p>
+    <a class="btn" href="/day/{{ days[0].slug }}/">Begin Day 1 &rarr;</a>
   </div>
 </section>
 
@@ -23,7 +24,7 @@
     <div class="callout" style="margin:0;">
       <img class="icon-badge" src="/img/icons/book.svg" alt="" width="44" height="44">
       <div class="callout-body">
-        <h4>Read Along in the YouVersion Bible App</h4>
+        <h2>Read Along in the YouVersion Bible App</h2>
         <p>Every scripture on this site links straight to YouVersion, but the richest way to go through this devotional is inside the free Bible App itself &mdash; with your own highlights, notes, and daily reminders.</p>
         <p style="margin-top:1rem;">
           <a class="btn" style="background:var(--color-accent); color:#fff; margin-right:0.75rem;" href="https://www.bible.com/app" target="_blank" rel="noopener">Get the Bible App</a>
@@ -44,7 +45,7 @@
       </div>
       <div class="day-grid">
         {% for d in week_days %}
-        <a class="day-card" href="/day/{{ d.slug }}/" style="--card-accent: var(--color-{{ week_colors[week_num] }});">
+        <a class="day-card" href="/day/{{ d.slug }}/" style="--card-accent: var(--color-{{ week_colors[week_num] }}); --card-accent-text: var(--color-{{ week_colors[week_num] }}-text);">
           <span class="day-num">Day {{ d.day }}</span>
           <h3>{{ d.title }}</h3>
           <p>{{ d.summary }}</p>
