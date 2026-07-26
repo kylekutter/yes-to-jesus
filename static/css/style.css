@@ -74,6 +74,9 @@ img, svg { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-family: var(--font-display);
   font-weight: 600;
   font-style: italic;
@@ -81,7 +84,14 @@ img, svg { max-width: 100%; display: block; }
   color: var(--color-ink);
   text-decoration: none;
 }
-.brand span { color: var(--color-sage); }
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  padding: 6px;
+  border-radius: 50%;
+  background: var(--color-sage);
+}
+.brand span { color: var(--color-sage-text); }
 .site-nav a {
   font-family: var(--font-heading);
   color: var(--color-ink);
@@ -395,7 +405,7 @@ blockquote.scripture cite {
 .day-nav a {
   flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
   text-decoration: none;
   color: var(--color-ink);
@@ -406,7 +416,7 @@ blockquote.scripture cite {
   font-family: var(--font-heading);
 }
 .day-nav a:hover { border-color: var(--color-accent-text); }
-.day-nav .icon { width: 1.4rem; height: 1.4rem; color: var(--color-accent-text); flex-shrink: 0; }
+.day-nav .icon { width: 1.4rem; height: 1.4rem; color: var(--color-accent-text); flex-shrink: 0; margin-top: 0.15rem; }
 .day-nav .prev .icon { transform: scaleX(-1); }
 .day-nav .label {
   display: block;
@@ -420,6 +430,7 @@ blockquote.scripture cite {
 }
 .day-nav .title { font-family: var(--font-body); font-size: 0.95rem; }
 .day-nav .next { text-align: right; flex-direction: row-reverse; }
+.day-nav .next span { text-align: right; }
 
 /* ---------- Footer ---------- */
 .site-footer {

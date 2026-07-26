@@ -14,15 +14,6 @@
       {{ day.title }}
     </h1>
     <p class="lede">{{ day.summary }}</p>
-    {% if day.scripture %}
-    <div>
-      {% for s in day.scripture %}
-      <a class="scripture-chip" href="{{ s.link }}" target="_blank" rel="noopener">
-        <img class="icon" src="/img/icons/book.svg" alt="" width="16" height="16"> Read {{ s.ref }} ({{ s.translation }}) on YouVersion
-      </a>
-      {% endfor %}
-    </div>
-    {% endif %}
   </div>
 </section>
 
@@ -65,14 +56,6 @@
           </div>
         {% endif %}
       {% endfor %}
-
-      <div class="callout">
-        <img class="icon-badge" src="/img/icons/book.svg" alt="">
-        <div class="callout-body">
-          <h2>Follow Along in the App</h2>
-          <p>Read this exact day inside the free YouVersion Bible App, with your own highlights and reminders &mdash; via the official <a href="https://www.bible.com/reading-plans/47309-you-said-yes-how-do-i-start-my-new-life-with-jesus" target="_blank" rel="noopener">&ldquo;You Said Yes&rdquo; reading plan</a>.</p>
-        </div>
-      </div>
     </article>
   </div>
 </section>

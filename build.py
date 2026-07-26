@@ -25,15 +25,17 @@ def api_ref_from_link(link):
 
 
 # Bible version IDs in the YouVersion Platform API's shared catalog (same
-# numbering as bible.com). Always *default* to the freely-licensed Berean
-# Standard Bible (BSB) so a real visitor never sees an access-denied error —
-# once Biblica's Fast-track license is accepted, NIV (111) becomes available
-# as a picker option, but isn't the initial default until that's confirmed.
-FALLBACK_VERSION_ID = 3034  # Berean Standard Bible — public domain
+# numbering as bible.com). Only versions listed here are actually present in
+# the Platform's catalog under this app key — the booklet also cites NLT and
+# MSG, but neither exists in the Platform catalog, so those days fall back to
+# NIV instead.
+NIV_VERSION_ID = 111
+BOOKLET_VERSION_IDS = {"NIV": NIV_VERSION_ID}
+FALLBACK_VERSION_ID = NIV_VERSION_ID
 
 
 def default_version_id_for(translation):
-    return FALLBACK_VERSION_ID
+    return BOOKLET_VERSION_IDS.get(translation, FALLBACK_VERSION_ID)
 
 SITE_URL = os.environ.get("SITE_URL", "https://yestojesus.us")
 ROOT = os.path.dirname(os.path.abspath(__file__))
