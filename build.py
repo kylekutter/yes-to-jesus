@@ -302,6 +302,23 @@ def main():
     )
     write("who-is-jesus/index.html", html)
 
+    # ---- Keep Growing page ----
+    # noindex + not yet linked in nav/footer/sitemap: the recommended
+    # resources are placeholders pending curation (see resource-placeholder
+    # links in the template). Flip noindex off and wire up navigation once
+    # real links are in.
+    tmpl = env.get_template("keep-growing.html")
+    html = tmpl.render(
+        **base_ctx,
+        page_title="Keep Growing — Yes to Jesus",
+        page_description="Resources from trusted ministries to help you know Jesus, understand the Bible, build spiritual habits, and keep growing in your faith.",
+        canonical_path="/keep-growing/",
+        json_ld=None,
+        noindex=True,
+        body_class="week-3",
+    )
+    write("keep-growing/index.html", html)
+
     # ---- Static assets ----
     shutil.copytree(os.path.join(ROOT, "static", "css"), os.path.join(PUBLIC, "css"))
     shutil.copytree(os.path.join(ROOT, "static", "img"), os.path.join(PUBLIC, "img"))

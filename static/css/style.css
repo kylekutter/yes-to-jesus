@@ -643,6 +643,29 @@ blockquote.scripture cite {
   font-size: 0.92rem;
   opacity: 0.85;
 }
+.growth-label {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-text);
+  margin: 1.25rem 0 0.5rem !important;
+}
+.resource-list li { margin-bottom: 0.5rem; }
+.resource-placeholder {
+  display: inline-block;
+  border: 1px dashed var(--color-border);
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.85rem;
+  color: var(--color-ink);
+  opacity: 0.6;
+  text-decoration: none;
+}
+.resource-placeholder:hover { opacity: 0.85; border-color: var(--color-accent); }
+.resource-placeholder--cta { margin-top: 1rem; }
+
 .footnote {
   font-size: 0.85rem;
   color: var(--color-ink);
