@@ -84,22 +84,13 @@ img, svg { max-width: 100%; display: block; }
   text-decoration: none;
   letter-spacing: -0.01em;
 }
-.brand-dot {
-  display: inline-block;
-  width: 0.3em;
-  height: 0.3em;
-  margin: 0 0.3em;
-  border-radius: 50%;
-  background: var(--color-terracotta-text);
-  align-self: center;
-}
 .brand-to {
   font-family: var(--font-body);
   font-weight: 400;
   font-style: italic;
   font-size: 1rem;
   color: var(--color-sage-text);
-  margin-right: 0.3em;
+  margin: 0 0.32em;
 }
 .site-nav a {
   font-family: var(--font-heading);
@@ -319,6 +310,7 @@ img, svg { max-width: 100%; display: block; }
 .scripture-chip .icon { color: var(--color-accent-text); width: 1.1em; height: 1.1em; }
 
 .scripture-block {
+  position: relative;
   margin: 1.75rem 0;
   max-width: var(--measure);
 }
@@ -331,6 +323,14 @@ img, svg { max-width: 100%; display: block; }
   opacity: 0.7;
 }
 .scripture-block .scripture-card-mount { margin: 0; max-width: none; }
+@media (min-width: 900px) {
+  .scripture-icon {
+    position: absolute;
+    left: -2.6rem;
+    top: 0.3rem;
+    margin: 0;
+  }
+}
 
 .scripture-card-mount {
   min-height: 96px;
@@ -546,18 +546,27 @@ blockquote.scripture cite {
 .day-nav a {
   flex: 1;
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.85rem;
   text-decoration: none;
   color: var(--color-ink);
   background: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 1.1rem 1.3rem;
+  border: 2px solid var(--color-accent);
+  border-radius: 999px;
+  padding: 0.95rem 1.6rem;
   font-family: var(--font-heading);
+  box-shadow: 0 2px 0 rgba(62, 68, 55, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
-.day-nav a:hover { border-color: var(--color-accent-text); }
-.day-nav .icon { width: 1.4rem; height: 1.4rem; color: var(--color-accent-text); flex-shrink: 0; margin-top: 0.15rem; }
+.day-nav a:hover {
+  background: var(--color-accent);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(62, 68, 55, 0.15);
+}
+.day-nav a:hover .icon { color: #fff; }
+.day-nav a:hover .label { color: #fff; opacity: 0.85; }
+.day-nav .icon { width: 1.4rem; height: 1.4rem; color: var(--color-accent-text); flex-shrink: 0; }
 .day-nav .prev .icon { transform: scaleX(-1); }
 .day-nav .label {
   display: block;
