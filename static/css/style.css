@@ -84,13 +84,22 @@ img, svg { max-width: 100%; display: block; }
   text-decoration: none;
   letter-spacing: -0.01em;
 }
-.brand-dot { color: var(--color-terracotta-text); font-weight: 700; }
+.brand-dot {
+  display: inline-block;
+  width: 0.3em;
+  height: 0.3em;
+  margin: 0 0.3em;
+  border-radius: 50%;
+  background: var(--color-terracotta-text);
+  align-self: center;
+}
 .brand-to {
   font-family: var(--font-body);
   font-weight: 400;
   font-style: italic;
   font-size: 1rem;
   color: var(--color-sage-text);
+  margin-right: 0.3em;
 }
 .site-nav a {
   font-family: var(--font-heading);
