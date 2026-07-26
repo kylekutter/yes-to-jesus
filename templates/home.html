@@ -2,7 +2,6 @@
 {% block content %}
 <section class="hero">
   <div class="container">
-    <img class="hero-icon" src="/img/icons/rising-sun.svg" alt="" width="72" height="72">
     <div class="hero-eyebrow">You Said Yes</div>
     <h1>You said yes to Jesus.<br>Now what?</h1>
     <p>You don't have to figure everything out today. This free 21-day guide helps you understand what it means to follow Jesus, one day at a time.</p>
@@ -15,22 +14,6 @@
     <div class="prose">
       <p class="lede">Inside, you'll discover more about what your decision to follow Jesus means. Each day includes a short reading from the Bible and something to try for yourself &mdash; answering questions like &ldquo;what does this mean,&rdquo; &ldquo;what should I do,&rdquo; and &ldquo;what does this change?&rdquo;</p>
       <p>This is organized into 21 days, but there's no rush &mdash; go at whatever pace helps you grow. You might finish in a week, in 100 days, or keep coming back to it again and again. Finishing isn't the point. Finding direction, growing in confidence, and starting real conversations about what you're learning &mdash; that's what matters.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="callout" style="margin:0;">
-      <img class="icon-badge" src="/img/icons/book.svg" alt="" width="44" height="44">
-      <div class="callout-body">
-        <h2>Read Along in the YouVersion Bible App</h2>
-        <p>Every scripture on this site links straight to YouVersion, but the richest way to go through this devotional is inside the free Bible App itself &mdash; with your own highlights, notes, and daily reminders.</p>
-        <p style="margin-top:1rem;">
-          <a class="btn" style="background:var(--color-accent); color:#fff; margin-right:0.75rem;" href="https://www.bible.com/app" target="_blank" rel="noopener">Get the Bible App</a>
-          <a class="btn" style="background:transparent; border:2px solid var(--color-ink); color:var(--color-ink);" href="https://www.bible.com/reading-plans/47309-you-said-yes-how-do-i-start-my-new-life-with-jesus" target="_blank" rel="noopener">Open This Plan in the App</a>
-        </p>
-      </div>
     </div>
   </div>
 </section>
@@ -54,6 +37,29 @@
       </div>
     </div>
     {% endfor %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="callout yv-callout" style="margin:0;">
+      <img class="callout-app-icon" src="https://imageproxy.youversionapi.com/200/https://web-assets.youversion.com/app-icons/en.png" alt="YouVersion Bible App icon" width="60" height="60">
+      <div class="callout-body">
+        <h2>Read Along in the YouVersion Bible App</h2>
+        <p>Every scripture on this site links straight to YouVersion, but the richest way to go through this devotional is inside the free Bible App itself &mdash; with your own highlights, notes, and daily reminders.</p>
+        <div class="yv-plan-card">
+          <img class="yv-plan-art" src="https://imageproxy.youversionapi.com/https://s3.amazonaws.com/yvplans/47309/1280x720.jpg" alt="You Said Yes reading plan cover art on YouVersion" width="160" height="90">
+          <div class="yv-plan-info">
+            <p class="yv-plan-eyebrow">Free Reading Plan</p>
+            <p class="yv-plan-title">You Said Yes: How Do I Start My New Life With Jesus?</p>
+            <a class="yv-plan-link" href="https://www.bible.com/reading-plans/47309-you-said-yes-how-do-i-start-my-new-life-with-jesus" target="_blank" rel="noopener">Open in the App &rarr;</a>
+          </div>
+        </div>
+        <p style="margin-top:1.25rem;">
+          <a class="btn" style="background:var(--color-accent); color:#fff;" href="https://www.bible.com/app" target="_blank" rel="noopener">Get the Bible App</a>
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 {% endblock %}

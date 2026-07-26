@@ -82,7 +82,10 @@ def blocks_for_day(day):
         elif key == "closing":
             blocks.append({"type": "paragraphs", "entries": [value]})
         elif key == "reflection":
-            blocks.append({"type": "reflection", "text": value})
+            if isinstance(value, dict):
+                blocks.append({"type": "reflection", "text": value["text"], "journal_lines": value.get("journal_lines")})
+            else:
+                blocks.append({"type": "reflection", "text": value, "journal_lines": None})
         elif key in ("prayer", "prayer_intro"):
             blocks.append({"type": "prayer", "text": value})
         elif key == "next_steps":
