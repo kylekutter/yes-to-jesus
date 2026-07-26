@@ -173,6 +173,7 @@ img, svg { max-width: 100%; display: block; }
   font-weight: 700;
   margin: 2rem 0 0.75rem;
 }
+.prose > h2:first-child { margin-top: 0; }
 .lede { font-size: 1.18rem; color: var(--color-ink); opacity: 0.85; }
 
 .prose strong { color: var(--color-accent-text); font-weight: 700; }
