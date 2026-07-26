@@ -652,19 +652,34 @@ blockquote.scripture cite {
   color: var(--color-accent-text);
   margin: 1.25rem 0 0.5rem !important;
 }
-.resource-list li { margin-bottom: 0.5rem; }
-.resource-placeholder {
-  display: inline-block;
-  border: 1px dashed var(--color-border);
-  border-radius: 6px;
-  padding: 0.3rem 0.65rem;
-  font-size: 0.85rem;
-  color: var(--color-ink);
-  opacity: 0.6;
-  text-decoration: none;
+
+.resource-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.75rem;
 }
-.resource-placeholder:hover { opacity: 0.85; border-color: var(--color-accent); }
-.resource-placeholder--cta { margin-top: 1rem; }
+.resource-icon { width: 3rem; height: 3rem; flex-shrink: 0; color: var(--color-accent-text); }
+.resource-head h2 { margin: 0 !important; }
+
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1.5rem !important;
+}
+.resource-list li {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.65rem 0;
+}
+.resource-list li:last-child { border-bottom: none; }
+.resource-placeholder {
+  font-style: italic;
+  color: var(--color-ink);
+  opacity: 0.55;
+  text-decoration-style: dashed;
+  text-decoration-color: var(--color-border);
+}
+.resource-placeholder:hover { opacity: 0.85; }
 
 .footnote {
   font-size: 0.85rem;
