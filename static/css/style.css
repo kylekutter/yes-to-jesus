@@ -212,8 +212,9 @@ img, svg { max-width: 100%; display: block; }
   color: var(--color-accent-text);
 }
 
-/* Breakout grid: lets .scripture-block span the full container width
-   while everything else stays at the prose measure, centered. */
+/* Breakout grid: lets .scripture-block match the same full width as
+   .callout (which isn't measure-constrained) instead of the narrower
+   body-copy measure. */
 .day-body {
   display: grid;
   max-width: none;
@@ -224,6 +225,7 @@ img, svg { max-width: 100%; display: block; }
   grid-column: 1 / 4;
   width: 100%;
 }
+
 
 .complete-toggle {
   display: inline-flex;
@@ -383,7 +385,7 @@ img, svg { max-width: 100%; display: block; }
   letter-spacing: -0.01em;
   max-width: var(--measure);
 }
-.day-header .lede { margin: 0 0 1.25rem; max-width: var(--measure); }
+.day-header .lede { margin: 0 0 1.25rem; }
 .title-icon {
   display: inline-block;
   width: 0.85em;
@@ -417,13 +419,21 @@ img, svg { max-width: 100%; display: block; }
 }
 .scripture-icon {
   display: block;
-  width: 2.25rem;
-  height: 2.25rem;
-  margin: 0 0 0.7rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0 0 0.85rem;
   color: var(--color-accent-text);
   opacity: 0.8;
 }
 .scripture-block .scripture-card-mount { margin: 0; max-width: none; }
+@media (min-width: 900px) {
+  .scripture-icon {
+    position: absolute;
+    left: -3.6rem;
+    top: 1.45rem;
+    margin: 0;
+  }
+}
 
 .scripture-card-mount {
   min-height: 96px;
@@ -481,8 +491,8 @@ blockquote.scripture cite {
 }
 .callout .icon-badge {
   display: block;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 3.25rem;
+  height: 3.25rem;
   margin: 0 0 0.85rem;
   color: var(--color-ink);
 }
