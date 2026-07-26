@@ -28,7 +28,7 @@
       </div>
       <div class="day-grid">
         {% for d in week_days %}
-        <a class="day-card" href="/day/{{ d.slug }}/" style="--card-accent: var(--color-{{ week_colors[week_num] }}); --card-accent-text: var(--color-{{ week_colors[week_num] }}-text);">
+        <a class="day-card" href="/day/{{ d.slug }}/" data-day-slug="{{ d.slug }}" style="--card-accent: var(--color-{{ week_colors[week_num] }}); --card-accent-text: var(--color-{{ week_colors[week_num] }}-text);">
           <span class="day-num">Day {{ d.day }}</span>
           <h3>{{ d.title }}</h3>
           <p>{{ d.summary }}</p>
