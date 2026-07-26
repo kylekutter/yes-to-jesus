@@ -169,6 +169,44 @@ def day_article_jsonld(day, url, blocks):
     }, indent=None)
 
 
+WHO_IS_JESUS_FAQS = [
+    ("Do I need to clean up my life before I come to Jesus?",
+     "No. Jesus invites you to come exactly as you are. He loves you too much to leave you there, but you don't have to fix yourself before coming to Him."),
+    ("What if I've prayed before but wasn't sincere?",
+     "Then today can be a new beginning. God isn't keeping score. He's inviting you to trust Him today."),
+    ("Is following Jesus about religion?",
+     "No. Religion is often about trying to earn God's approval. Jesus came because we never could. Following Him is about a relationship with the God who loves you."),
+    ("What if I still have questions?",
+     "You're not alone. Many people do. Questions aren't the opposite of faith—they're often where faith begins. Keep seeking. Keep asking. We'd love to help."),
+    ("Do I have to go to church?",
+     "Going to church doesn't save you. Jesus does. But church is where you'll grow, build friendships, and discover what it means to follow Him alongside others."),
+    ("What happens next?",
+     "Talk to God regularly. Read the Bible. Connect with other believers. Keep taking your next step. You don't have to figure it all out today. Just keep following Jesus."),
+]
+
+
+def who_is_jesus_jsonld(url):
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Article",
+                "headline": "Who Is Jesus?",
+                "description": "Who is Jesus, why did He come, and what does it mean to say yes to a relationship with Him?",
+                "url": url,
+                "publisher": {"@type": "Organization", "name": "Yes to Jesus"},
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
+                    for q, a in WHO_IS_JESUS_FAQS
+                ],
+            },
+        ],
+    })
+
+
 def website_jsonld():
     return json.dumps({
         "@context": "https://schema.org",
@@ -250,6 +288,20 @@ def main():
     )
     write("about/index.html", html)
 
+    # ---- Who Is Jesus? page ----
+    tmpl = env.get_template("who-is-jesus.html")
+    html = tmpl.render(
+        **base_ctx,
+        page_title="Who Is Jesus? — Yes to Jesus",
+        page_description="Who is Jesus, why did He come, and what does it mean to say yes to a relationship with Him? Scripture, a prayer to begin, and answers to common questions.",
+        canonical_path="/who-is-jesus/",
+        og_type="article",
+        json_ld=who_is_jesus_jsonld(f"{SITE_URL}/who-is-jesus/"),
+        faqs=WHO_IS_JESUS_FAQS,
+        body_class="week-3",
+    )
+    write("who-is-jesus/index.html", html)
+
     # ---- Static assets ----
     shutil.copytree(os.path.join(ROOT, "static", "css"), os.path.join(PUBLIC, "css"))
     shutil.copytree(os.path.join(ROOT, "static", "img"), os.path.join(PUBLIC, "img"))
@@ -291,7 +343,7 @@ Sitemap: {site}/sitemap.xml
     write("robots.txt", robots)
 
     # ---- sitemap.xml ----
-    urls = ["/", "/about/"] + [f"/day/{d['slug']}/" for d in days]
+    urls = ["/", "/who-is-jesus/", "/about/"] + [f"/day/{d['slug']}/" for d in days]
     sitemap_entries = "\n".join(
         f"  <url><loc>{SITE_URL}{u}</loc></url>" for u in urls
     )
@@ -312,6 +364,9 @@ Sitemap: {site}/sitemap.xml
         for d in weeks[week_num]:
             lines.append(f"- [Day {d['day']}: {d['title']}]({SITE_URL}/day/{d['slug']}/) — {d['summary']}")
         lines.append("")
+    lines.append(f"## Who Is Jesus?")
+    lines.append(f"- [Who Is Jesus?]({SITE_URL}/who-is-jesus/) — Who Jesus is, why He came, and what it means to say yes to a relationship with Him.")
+    lines.append("")
     lines.append(f"## About")
     lines.append(f"- [About this project & attribution]({SITE_URL}/about/)")
     lines.append("")

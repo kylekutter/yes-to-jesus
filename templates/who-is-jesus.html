@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="day-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Yes to Jesus</a> &rsaquo; Who Is Jesus?</div>
+    <h1>Who Is Jesus?</h1>
+    <p class="lede"><strong>The greatest decision you'll ever make isn't choosing a religion. It's saying yes to a relationship with Jesus.</strong></p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1.75rem;">
+  <div class="container">
+    <article class="prose day-body">
+      <p class="pull-line">So who is Jesus?</p>
+      <p>Jesus isn't simply a great teacher, a prophet, or a historical figure. He is the Son of God, the Savior of the world, and the only One who can restore our relationship with God.</p>
+
+      <div class="scripture-block">
+        <img class="scripture-icon" src="/img/icons/book.svg" alt="">
+        <div class="scripture-card-mount" data-yv-widget data-reference="JHN.14.6" data-default-version-id="111"></div>
+      </div>
+
+      <p>Jesus stepped into our world because He loves us. He lived the perfect life we couldn't live, died on the cross for our sins, and rose again so we could have eternal life with Him.</p>
+
+      <div class="scripture-block">
+        <img class="scripture-icon" src="/img/icons/book.svg" alt="">
+        <div class="scripture-card-mount" data-yv-widget data-reference="ROM.5.8" data-default-version-id="111"></div>
+      </div>
+
+      <p>When Jesus met people, He didn't see projects to fix. He saw people to love.</p>
+      <p class="verse-lines">
+        He welcomed the forgotten.<br>
+        He forgave the broken.<br>
+        He gave hope to the hurting.<br>
+        He invited everyone to follow Him.
+      </p>
+      <p class="pull-line">That's still who He is today.</p>
+
+      <h2>Why Did Jesus Come?</h2>
+      <p>The Bible tells us we've all sinned and fallen short of God's perfect standard. Left on our own, we couldn't fix what was broken between us and God.</p>
+      <p class="pull-line">So God made a way.</p>
+      <p>Jesus willingly gave His life in our place so we could be forgiven and made new.</p>
+
+      <div class="scripture-block">
+        <img class="scripture-icon" src="/img/icons/book.svg" alt="">
+        <div class="scripture-card-mount" data-yv-widget data-reference="JHN.3.16" data-default-version-id="111"></div>
+      </div>
+
+      <h2>What Does That Mean for You?</h2>
+      <p class="verse-lines">
+        No matter where you've been&hellip;<br>
+        No matter what you've done&hellip;<br>
+        No matter how far from God you feel&hellip;
+      </p>
+      <p>Jesus is inviting you into a relationship with Him.</p>
+      <p class="verse-lines">
+        You don't have to earn His love.<br>
+        You don't have to clean yourself up first.
+      </p>
+      <p>You simply trust Him and receive the gift He's already provided.</p>
+
+      <div class="scripture-block">
+        <img class="scripture-icon" src="/img/icons/book.svg" alt="">
+        <div class="scripture-card-mount" data-yv-widget data-reference="ROM.10.9" data-default-version-id="111"></div>
+      </div>
+
+      <p>If you're ready, you can pray something like this:</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="callout">
+      <img class="icon-badge" src="/img/icons/praying-hands.svg" alt="">
+      <div class="callout-body">
+        <h2>A Prayer to Begin</h2>
+        <p><em>&ldquo;Jesus, I need You. I believe You died for me and rose again so I could have new life. Today I put my trust in You. Please forgive my sin, lead my life, and help me follow You. Thank You for loving me and making me new. Amen.&rdquo;</em></p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>If you prayed that and meant it, welcome to God's family.</p>
+      <p class="pull-line">This isn't the end of your journey.<br>It's the beginning of a brand new life with Jesus.</p>
+    </div>
+
+    <div class="who-cta-row">
+      <a class="btn" style="background:var(--color-accent); color:#fff;" href="/day/what-does-it-mean-to-say-yes-to-jesus/">I Just Said Yes to Jesus &rarr;</a>
+      <a class="btn" style="background:transparent; border:2px solid var(--color-ink); color:var(--color-ink);" href="#questions">I Still Have Questions</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="questions">
+  <div class="container">
+    <div class="prose">
+      <h2>Questions You May Be Asking</h2>
+    </div>
+    <div class="experience-list">
+      {% for q, a in faqs %}
+      <div class="experience-item">
+        <h3>{{ q }}</h3>
+        <p>{{ a }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

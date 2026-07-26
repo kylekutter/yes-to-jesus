@@ -176,6 +176,25 @@ img, svg { max-width: 100%; display: block; }
 .prose > h2:first-child { margin-top: 0; }
 .lede { font-size: 1.18rem; color: var(--color-ink); opacity: 0.85; }
 
+.pull-line {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  color: var(--color-accent-text);
+  margin: 1.85rem 0 !important;
+}
+.verse-lines { line-height: 2; margin-bottom: 1.35rem !important; }
+
+.who-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: var(--measure);
+  margin: 1rem auto 0;
+}
+
 .prose strong { color: var(--color-accent-text); font-weight: 700; }
 
 .day-body > p:first-of-type::first-letter {
