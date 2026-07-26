@@ -90,7 +90,7 @@ img, svg { max-width: 100%; display: block; }
   font-family: var(--font-display);
   font-weight: 700;
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: 1.85rem;
   color: var(--color-ink);
   text-decoration: none;
   letter-spacing: -0.01em;
@@ -177,13 +177,17 @@ img, svg { max-width: 100%; display: block; }
 .lede { font-size: 1.18rem; color: var(--color-ink); opacity: 0.85; }
 
 .pull-line {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 600;
-  font-size: 1.35rem;
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.05rem;
   line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--color-accent-text);
-  margin: 1.85rem 0 !important;
+  margin: 2rem 0 !important;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-accent);
 }
 .verse-lines { line-height: 2; margin-bottom: 1.35rem !important; }
 
@@ -197,7 +201,7 @@ img, svg { max-width: 100%; display: block; }
 
 .prose strong { color: var(--color-accent-text); font-weight: 700; }
 
-.day-body > p:first-of-type::first-letter {
+.day-body > p:first-of-type:not(.pull-line)::first-letter {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 700;
@@ -206,6 +210,19 @@ img, svg { max-width: 100%; display: block; }
   float: left;
   margin: 0.06em 0.1em 0 0;
   color: var(--color-accent-text);
+}
+
+/* Breakout grid: lets .scripture-block span the full container width
+   while everything else stays at the prose measure, centered. */
+.day-body {
+  display: grid;
+  max-width: none;
+  grid-template-columns: minmax(0, 1fr) min(var(--measure), 100%) minmax(0, 1fr);
+}
+.day-body > * { grid-column: 2; }
+.day-body > .scripture-block {
+  grid-column: 1 / 4;
+  width: 100%;
 }
 
 .complete-toggle {
@@ -397,29 +414,22 @@ img, svg { max-width: 100%; display: block; }
 .scripture-block {
   position: relative;
   margin: 1.75rem 0;
-  max-width: var(--measure);
 }
 .scripture-icon {
   display: block;
-  width: 1.75rem;
-  height: 1.75rem;
-  margin: 0 0 0.6rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0 0 0.7rem;
   color: var(--color-accent-text);
-  opacity: 0.7;
+  opacity: 0.8;
 }
 .scripture-block .scripture-card-mount { margin: 0; max-width: none; }
-@media (min-width: 900px) {
-  .scripture-icon {
-    position: absolute;
-    left: -2.6rem;
-    top: 0.3rem;
-    margin: 0;
-  }
-}
 
 .scripture-card-mount {
   min-height: 96px;
-  max-width: var(--measure);
+}
+.scripture-card-mount section[class~="yv:p-6"] {
+  padding: 1.1rem 1.35rem !important;
 }
 .scripture-card-mount [data-slot="yv-bible-renderer"] {
   font-family: var(--font-body) !important;
