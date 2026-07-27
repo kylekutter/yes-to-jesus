@@ -634,6 +634,24 @@ blockquote.scripture cite {
   margin: 1.25rem 0 0.5rem !important;
 }
 
+.go-deeper {
+  margin: 2rem 0;
+  padding: 1.1rem 1.35rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.go-deeper h3 {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-text);
+  margin: 0 0 0.5rem;
+}
+.go-deeper p { margin: 0; }
+
 .resource-head {
   display: flex;
   align-items: center;
@@ -641,6 +659,7 @@ blockquote.scripture cite {
   margin-bottom: 0.75rem;
 }
 .resource-icon { width: 3rem; height: 3rem; flex-shrink: 0; color: var(--color-accent-text); object-fit: contain; border-radius: 0.4rem; }
+.resource-icon-tinted { background: var(--color-accent-text); padding: 0.55rem; object-fit: contain; box-sizing: border-box; }
 .resource-head h2 { margin: 0 !important; }
 
 .resource-card-grid {

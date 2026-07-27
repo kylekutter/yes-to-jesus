@@ -136,6 +136,17 @@ def answer_text_for_day(day, blocks, limit=600):
     return (text[:limit].rsplit(" ", 1)[0] + "…") if len(text) > limit else text
 
 
+def breadcrumb_jsonld(items):
+    """items: list of (name, url) tuples, in order from home to current page."""
+    return {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": name, "item": url}
+            for i, (name, url) in enumerate(items)
+        ],
+    }
+
+
 def day_article_jsonld(day, url, blocks):
     answer = answer_text_for_day(day, blocks)
     return json.dumps({
@@ -152,6 +163,11 @@ def day_article_jsonld(day, url, blocks):
                 "isPartOf": {"@type": "CreativeWorkSeries", "name": "Yes to Jesus: A 21-Day Devotional"},
                 "position": day["day"],
             },
+            breadcrumb_jsonld([
+                ("Yes to Jesus", f"{SITE_URL}/"),
+                (f"Week {day['week']}", f"{SITE_URL}/#days"),
+                (day["title"], url),
+            ]),
             {
                 "@type": "FAQPage",
                 "mainEntity": [
@@ -203,6 +219,34 @@ def who_is_jesus_jsonld(url):
                     for q, a in WHO_IS_JESUS_FAQS
                 ],
             },
+            breadcrumb_jsonld([
+                ("Yes to Jesus", f"{SITE_URL}/"),
+                ("Who Is Jesus?", url),
+            ]),
+        ],
+    })
+
+
+def about_jsonld(url):
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            breadcrumb_jsonld([
+                ("Yes to Jesus", f"{SITE_URL}/"),
+                ("About", url),
+            ]),
+        ],
+    })
+
+
+def keep_growing_jsonld(url):
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            breadcrumb_jsonld([
+                ("Yes to Jesus", f"{SITE_URL}/"),
+                ("Keep Growing", url),
+            ]),
         ],
     })
 
@@ -214,6 +258,15 @@ def website_jsonld():
         "name": "Yes to Jesus",
         "url": SITE_URL,
         "description": "A free 21-day devotional for new believers, adapted from Life.Church's You Said Yes, with scripture from the YouVersion Bible App.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Yes to Jesus",
+            "url": SITE_URL,
+            "sameAs": [
+                "https://www.bible.com/reading-plans/47309-you-said-yes-how-do-i-start-my-new-life-with-jesus",
+                "https://finds.life.church",
+            ],
+        },
     })
 
 
@@ -283,7 +336,7 @@ def main():
         page_title="About — Yes to Jesus Devotional",
         page_description="This devotional is adapted from Life.Church's free You Said Yes resource, with scripture linked to the YouVersion Bible App.",
         canonical_path="/about/",
-        json_ld=None,
+        json_ld=about_jsonld(f"{SITE_URL}/about/"),
         body_class="week-3",
     )
     write("about/index.html", html)
@@ -309,7 +362,7 @@ def main():
         page_title="Keep Growing — Yes to Jesus",
         page_description="Resources from trusted ministries to help you know Jesus, understand the Bible, build spiritual habits, and keep growing in your faith.",
         canonical_path="/keep-growing/",
-        json_ld=None,
+        json_ld=keep_growing_jsonld(f"{SITE_URL}/keep-growing/"),
         body_class="week-3",
     )
     write("keep-growing/index.html", html)

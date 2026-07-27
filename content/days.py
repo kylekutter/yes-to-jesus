@@ -41,6 +41,7 @@ DAYS = [
         "quote": {"text": "For this is how God loved the world: He gave his one and only Son, so that everyone who believes in him will not perish but have eternal life. God sent his Son into the world not to judge the world, but to save the world through him.", "ref": "John 3:16-17 NLT"},
         "closing": "<strong>God's love for us is so great that Jesus was willing to die for our sins so we could be a part of His family forever.</strong> That's the kind of love that would make anyone want to say yes to His love, forgiveness, and new way of life. Tomorrow, we'll talk about how that happens, but today, let's consider Jesus' answer as we talk with Him in prayer.",
         "prayer": "God, I have decided to trust that Jesus is Your Son who came to save me and the world. I don't know everything about what this means yet, but I do want to follow Jesus and live His way. Thank You for loving me enough to send Jesus. Thank You for inviting me into Your family. Amen.",
+        "go_deeper": {"title": "How to Find Jesus for Yourself", "url": "https://www.bible.com/reading-plans/58888-how-to-find-jesus-for-yourself", "source": "YouVersion Bible Plan"},
     },
     {
         "day": 2,
@@ -89,6 +90,7 @@ DAYS = [
         "quote2": {"text": "In the beginning was the Word, and the Word was with God, and the Word was God. He was with God in the beginning. ... to all who did receive him, to those who believed in his name, he gave the right to become children of God ... The Word became flesh and made his dwelling among us. We have seen his glory, the glory of the one and only Son, who came from the Father, full of grace and truth. ... No one has ever seen God, but the one and only Son, who is himself God and is in closest relationship with the Father, has made him known. ... ‘The man on whom you see the Spirit come down and remain is the one who will baptize with the Holy Spirit.' I have seen and I testify that this is God's Chosen One.", "ref": "John 1:1-2, 12, 14, 18, 33-34 NIV"},
         "closing": "That's a lot. Here's the takeaway: Jesus, God the Father, and the Holy Spirit are One, and Jesus came not just to show us what God is like, but to give us direct access to the Father forever, through the Holy Spirit.",
         "prayer": "God, help me to know You as Father, Son, and Holy Spirit. Father, You are my Provider. Jesus, You are my Savior. Holy Spirit, You are my Guide. In Jesus' name, amen.",
+        "go_deeper": {"title": "How to Find Jesus for Yourself", "url": "https://www.bible.com/reading-plans/58888-how-to-find-jesus-for-yourself", "source": "YouVersion Bible Plan"},
     },
     {
         "day": 4,
@@ -151,6 +153,7 @@ DAYS = [
         "quote2": {"text": "“Go out and train everyone you meet, far and near, in this way of life, marking them by baptism in the threefold name: Father, Son, and Holy Spirit.”", "ref": "Matthew 28:19 MSG"},
         "closing": "When you've said yes to Jesus' way of life, baptism is one of the next steps you're invited to take. Remember, it's a public declaration that says to the world, “I have decided to follow Jesus!”",
         "reflection": "Have you been baptized? What would it be like for you to take this next step of following Jesus? What questions do you still have about baptism?",
+        "go_deeper": {"title": "Curious About Baptism", "url": "https://www.bible.com/reading-plans/59467-curious-about-baptism", "source": "YouVersion Bible Plan"},
     },
     {
         "day": 6,
@@ -170,6 +173,7 @@ DAYS = [
         ],
         "quote": {"text": "Let us think of ways to motivate one another to acts of love and good works. And let us not neglect our meeting together ...", "ref": "Hebrews 10:24-25 NLT"},
         "closing": "We get to know Him better by hearing stories of God's faithfulness, listening to wisdom from the Bible, and singing songs about God's love. A very doable way to build a habit of meeting with Jesus followers is to regularly attend church. It's an opportunity to make friends, share how God's working in your life, and practice serving and encouraging others. If you haven't yet, make a plan to meet others at church this week. Consider inviting a friend, family member, or neighbor so they can experience the life-changing way of Jesus.",
+        "go_deeper": {"title": "How Do I Pray?", "url": "https://finds.life.church/journeys/prayer-journey", "source": "Finds.Life.Church"},
     },
     {
         "day": 7,
@@ -209,6 +213,7 @@ DAYS = [
         "quote": {"text": "… “You must love the Lord your God with all your heart, all your soul, and all your mind.” This is the first and greatest commandment. A second is equally important: ‘Love your neighbor as yourself.' The entire law and all the demands of the prophets are based on these two commandments.", "ref": "Matthew 22:37-40 NLT"},
         "closing": "<strong>Jesus summed up all of God's words to us as: Love God and love your neighbor as yourself.</strong> Becoming the kind of person who loves God and loves your neighbors is a process that will take your whole life. Every disciple experiences setbacks and failures. If you're like the rest of us, you may have experienced some of those setbacks already. When we fall short, we don't need to hide or run from God or others. His forgiving kindness is always available to help you continue becoming more like Jesus.",
         "prayer": "God, You see the mistakes I make. Thank You for forgiving me and guiding me as I become more like Jesus. Holy Spirit, will You help me see one step I can take to grow in love for You, myself, and others today? In Jesus' name, amen.",
+        "go_deeper": {"title": "New to Following Jesus?", "url": "https://finds.life.church/journeys/new-christian-journey", "source": "Finds.Life.Church"},
     },
     {
         "day": 9,
@@ -254,6 +259,7 @@ DAYS = [
             "So, how did Jesus pray? Jesus made prayer a priority. Jesus prayed in the presence of others. Jesus prayed on His own. Jesus asked others to pray for Him.",
         ],
         "closing": "Today, let's start a habit of prayer. Simply take a few minutes on your way home from work or before going to bed to talk with God. Tell Him what you're thankful for, ask Him for what you need, and listen to His voice. As you do, you'll discover a closer relationship with Jesus every day.",
+        "go_deeper": {"title": "How Do I Pray?", "url": "https://finds.life.church/journeys/prayer-journey", "source": "Finds.Life.Church"},
     },
     {
         "day": 11,
@@ -321,6 +327,7 @@ DAYS = [
         "quote": {"text": "No temptation has overtaken you except what is common to mankind. And God is faithful; he will not let you be tempted beyond what you can bear. But when you are tempted, he will also provide a way out so that you can endure it.", "ref": "1 Corinthians 10:13 NIV"},
         "closing": "<strong>Let's be like Jesus and prepare for temptation before it strikes.</strong> We do this by studying, believing, and living out God's truths in the Bible, asking God for help through prayer, sharing vulnerably with others, and looking for the opportunities God provides to escape temptation. Sometimes the opportunity God provides can look like joining a recovery group, talking with a healthcare professional, or meeting with a pastor to find the tools you need to find freedom.",
         "prayer": "Dear God, thank You for always offering me another chance. Help me to recognize and resist temptation when it comes. In Jesus' name, amen.",
+        "go_deeper": {"title": "Forming Healthy Habits", "url": "https://finds.life.church/journeys/habits-journey", "source": "Finds.Life.Church"},
     },
     {
         "day": 14,
@@ -344,6 +351,7 @@ DAYS = [
             "You might work long hours and have people who depend on you. Don't feel guilty if you're not able to take a full day off each week to rest. Instead, find moments to rest when you can. Jesus did the same. Once, when He was tired, He simply sat down by a well. Another time, He took a nap in a boat.",
         ],
         "reflection": "How might you add rest into each week, and how might you add rest into each day?",
+        "go_deeper": {"title": "How to Find Peace in God", "url": "https://www.bible.com/reading-plans/58391-how-to-find-peace-in-god", "source": "YouVersion Bible Plan"},
     },
     # ---------------- WEEK 3: Loving Like Jesus Loved ----------------
     {
@@ -367,6 +375,7 @@ DAYS = [
             "If we want to love like Jesus, we need to pursue His version of greatness. Jesus lived an others-focused life that led Him to hospitality, service, forgiveness, generosity, and telling others about God's love. We'll explore each of these topics this week.",
         ],
         "closing": "So, what are you pursuing in life? The world invites us to be “great” by pursuing personal goals that lead us to influence and comfort. Jesus invites us to a different kind of greatness—one focused on raising others up.",
+        "go_deeper": {"title": "Growing in Humility", "url": "https://finds.life.church/journeys/humility-journey", "source": "Finds.Life.Church"},
     },
     {
         "day": 16,
@@ -484,6 +493,7 @@ DAYS = [
             "How do we obey Jesus' command to share His message and way of life with the world? Christians often call our approach to sharing Jesus with the world “missions.” We get involved in missions locally by getting to know our neighbors and looking for ways to meet the needs of people in our communities. As we get to know others, we share our stories and the way Jesus is changing our lives.",
         ],
         "closing": "As you invest in your neighborhood or city, look for ways to support global missions as well. There are full-time missionaries and missions organizations at work all over the world, focused on needs like Bible translation, education, disaster relief, and fighting human trafficking. We can all support missions through prayer, giving, or looking for opportunities to volunteer.",
+        "go_deeper": {"title": "All About Sharing Your Faith", "url": "https://finds.life.church/journeys/sharing-faith-journey", "source": "Finds.Life.Church"},
     },
     {
         "day": 21,
