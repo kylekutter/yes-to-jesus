@@ -83,9 +83,9 @@
         <p>Want to keep exploring this? <a href="{{ day.go_deeper.url }}" target="_blank" rel="noopener">{{ day.go_deeper.title }}</a>, a free resource from {{ day.go_deeper.source }}, can help.</p>
       </div>
       {% endif %}
-      <button class="complete-toggle" type="button" data-day-slug="{{ day.slug }}" aria-pressed="false">
+      <button class="complete-toggle" type="button" data-day-slug="{{ day.slug }}" data-day-number="{{ day.day }}" aria-pressed="false">
         <svg class="complete-toggle-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 10.5L8 14.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="complete-toggle-label">Mark as Complete</span>
+        <span class="complete-toggle-label">Mark Day {{ day.day }} Complete</span>
       </button>
     </article>
   </div>

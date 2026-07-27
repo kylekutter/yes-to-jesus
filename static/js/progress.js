@@ -22,13 +22,14 @@
     var btn = document.querySelector(".complete-toggle");
     if (!btn) return;
     var slug = btn.getAttribute("data-day-slug");
+    var dayNum = btn.getAttribute("data-day-number");
     var label = btn.querySelector(".complete-toggle-label");
 
     function render() {
       var isDone = completed.has(slug);
       btn.classList.toggle("is-complete", isDone);
       btn.setAttribute("aria-pressed", String(isDone));
-      label.textContent = isDone ? "Day Complete" : "Mark as Complete";
+      label.textContent = isDone ? "Day " + dayNum + " Complete" : "Mark Day " + dayNum + " Complete";
     }
 
     btn.addEventListener("click", function () {

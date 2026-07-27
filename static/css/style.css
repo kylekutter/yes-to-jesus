@@ -325,12 +325,13 @@ img, svg { max-width: 100%; display: block; }
 }
 
 /* ---------- Day page ---------- */
-.day-header { padding: 3.5rem 0 1.5rem; }
+.day-header { padding: 2.25rem 0 1.5rem; }
 .breadcrumb {
   font-family: var(--font-heading);
   font-size: 0.8rem;
   color: var(--color-ink);
   opacity: 0.6;
+  margin-bottom: 1.75rem;
 }
 .breadcrumb a { color: inherit; }
 
@@ -341,6 +342,7 @@ img, svg { max-width: 100%; display: block; }
   gap: 0.6rem 0.85rem;
   margin-bottom: 1.75rem;
 }
+.day-meta .breadcrumb { margin-bottom: 0; }
 .reading-time {
   font-family: var(--font-heading);
   font-size: 0.7rem;
@@ -428,18 +430,19 @@ img, svg { max-width: 100%; display: block; }
   display: block;
   width: 2rem;
   height: 2rem;
-  margin: 0 0 0.6rem;
   color: var(--color-accent-text);
   opacity: 0.85;
+  position: absolute;
+  left: 1.1rem;
+  top: 2.5rem;
+  z-index: 1;
 }
 .scripture-block .scripture-card-mount { margin: 0; max-width: none; }
+.scripture-card-mount h2 { margin-left: 2.5rem !important; }
 @media (min-width: 900px) {
   .scripture-icon {
-    position: absolute;
     left: 1.5rem;
     top: 2.65rem;
-    margin: 0;
-    z-index: 1;
   }
   .scripture-card-mount h2 { margin-left: 2.75rem !important; }
 }
