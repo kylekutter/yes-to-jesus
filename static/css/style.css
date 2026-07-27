@@ -125,15 +125,6 @@ img, svg { max-width: 100%; display: block; }
   padding: 3.5rem 0 3rem;
   text-align: center;
 }
-.hero-eyebrow {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  opacity: 0.85;
-  margin-bottom: 0.75rem;
-}
 .hero h1 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -338,9 +329,30 @@ img, svg { max-width: 100%; display: block; }
   font-size: 0.8rem;
   color: var(--color-ink);
   opacity: 0.6;
-  margin-bottom: 1.75rem;
 }
 .breadcrumb a { color: inherit; }
+
+.day-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.85rem;
+  margin-bottom: 1.75rem;
+}
+.reading-time {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-text);
+  opacity: 0.85;
+  padding-left: 0.85rem;
+  border-left: 1px solid var(--color-border);
+}
+@media (max-width: 480px) {
+  .reading-time { padding-left: 0; border-left: none; }
+}
 
 .day-numeral-wrap {
   display: flex;

@@ -2,7 +2,10 @@
 {% block content %}
 <section class="day-header">
   <div class="container">
-    <div class="breadcrumb"><a href="/">Yes to Jesus</a> &rsaquo; Week {{ day.week }} &rsaquo; Day {{ day.day }} &rsaquo; {{ reading_minutes }} min read</div>
+    <div class="day-meta">
+      <div class="breadcrumb"><a href="/">Yes to Jesus</a> &rsaquo; Week {{ day.week }} &rsaquo; Day {{ day.day }}</div>
+      <span class="reading-time">{{ reading_minutes }} min read</span>
+    </div>
     <div class="day-numeral-wrap">
       <span class="day-word">Day</span>
       <span class="day-numeral">{{ "%02d"|format(day.day) }}</span>
