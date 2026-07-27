@@ -303,10 +303,6 @@ def main():
     write("who-is-jesus/index.html", html)
 
     # ---- Keep Growing page ----
-    # noindex + not yet linked in nav/footer/sitemap: the recommended
-    # resources are placeholders pending curation (see resource-placeholder
-    # links in the template). Flip noindex off and wire up navigation once
-    # real links are in.
     tmpl = env.get_template("keep-growing.html")
     html = tmpl.render(
         **base_ctx,
@@ -314,7 +310,6 @@ def main():
         page_description="Resources from trusted ministries to help you know Jesus, understand the Bible, build spiritual habits, and keep growing in your faith.",
         canonical_path="/keep-growing/",
         json_ld=None,
-        noindex=True,
         body_class="week-3",
     )
     write("keep-growing/index.html", html)
@@ -360,7 +355,7 @@ Sitemap: {site}/sitemap.xml
     write("robots.txt", robots)
 
     # ---- sitemap.xml ----
-    urls = ["/", "/who-is-jesus/", "/about/"] + [f"/day/{d['slug']}/" for d in days]
+    urls = ["/", "/who-is-jesus/", "/keep-growing/", "/about/"] + [f"/day/{d['slug']}/" for d in days]
     sitemap_entries = "\n".join(
         f"  <url><loc>{SITE_URL}{u}</loc></url>" for u in urls
     )
@@ -383,6 +378,9 @@ Sitemap: {site}/sitemap.xml
         lines.append("")
     lines.append(f"## Who Is Jesus?")
     lines.append(f"- [Who Is Jesus?]({SITE_URL}/who-is-jesus/) — Who Jesus is, why He came, and what it means to say yes to a relationship with Him.")
+    lines.append("")
+    lines.append(f"## Keep Growing")
+    lines.append(f"- [Keep Growing]({SITE_URL}/keep-growing/) — Resources from trusted ministries to help new believers know Jesus, understand the Bible, and build spiritual habits.")
     lines.append("")
     lines.append(f"## About")
     lines.append(f"- [About this project & attribution]({SITE_URL}/about/)")

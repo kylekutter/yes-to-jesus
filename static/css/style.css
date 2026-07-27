@@ -53,9 +53,9 @@ a {
   text-decoration-color: var(--color-accent-text);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.15em;
-  transition: color 0.16s ease;
+  transition: color 0.16s ease, text-decoration-thickness 0.16s ease;
 }
-a:hover { color: var(--color-accent-text); }
+a:hover { color: var(--color-accent-text); text-decoration-thickness: 3px; }
 a:active { color: var(--color-accent); }
 
 img, svg { max-width: 100%; display: block; }
@@ -112,8 +112,11 @@ img, svg { max-width: 100%; display: block; }
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.2rem;
+  transition: color 0.16s ease, border-color 0.16s ease;
 }
-.site-nav a:hover { color: var(--color-sage); }
+.site-nav a:hover { color: var(--color-accent-text); border-bottom-color: var(--color-accent-text); }
 
 /* ---------- Hero (cover-inspired) ---------- */
 .hero {
@@ -161,7 +164,12 @@ img, svg { max-width: 100%; display: block; }
   text-decoration: none;
   transition: filter 0.16s ease;
 }
-.btn:hover { filter: brightness(0.94); }
+.btn:hover {
+  filter: brightness(0.88);
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
 
 /* ---------- Intro / sections ---------- */
 .section { padding: 3.5rem 0; }
@@ -211,21 +219,6 @@ img, svg { max-width: 100%; display: block; }
   margin: 0.06em 0.1em 0 0;
   color: var(--color-accent-text);
 }
-
-/* Breakout grid: lets .scripture-block match the same full width as
-   .callout (which isn't measure-constrained) instead of the narrower
-   body-copy measure. */
-.day-body {
-  display: grid;
-  max-width: none;
-  grid-template-columns: minmax(0, 1fr) min(var(--measure), 100%) minmax(0, 1fr);
-}
-.day-body > * { grid-column: 2; }
-.day-body > .scripture-block {
-  grid-column: 1 / 4;
-  width: 100%;
-}
-
 
 .complete-toggle {
   display: inline-flex;
@@ -419,20 +412,22 @@ img, svg { max-width: 100%; display: block; }
 }
 .scripture-icon {
   display: block;
-  width: 3.25rem;
-  height: 3.25rem;
-  margin: 0 0 0.85rem;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0 0.6rem;
   color: var(--color-accent-text);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 .scripture-block .scripture-card-mount { margin: 0; max-width: none; }
 @media (min-width: 900px) {
   .scripture-icon {
     position: absolute;
-    left: -3.6rem;
-    top: 1.45rem;
+    left: 1.5rem;
+    top: 2.65rem;
     margin: 0;
+    z-index: 1;
   }
+  .scripture-card-mount h2 { margin-left: 2.75rem !important; }
 }
 
 .scripture-card-mount {
@@ -447,9 +442,13 @@ img, svg { max-width: 100%; display: block; }
 }
 .scripture-card-mount [data-slot="yv-bible-renderer"] {
   font-family: var(--font-body) !important;
+  font-size: 18px !important;
 }
 .scripture-card-mount h2 {
   font-size: 0.85rem !important;
+}
+@media (max-width: 640px) {
+  .scripture-card-mount [data-slot="yv-bible-renderer"] { font-size: 16.5px !important; }
 }
 
 /* Theme the YouVersion Platform SDK to match our palette instead of its
@@ -497,28 +496,10 @@ blockquote.scripture cite {
   margin: 2.25rem 0;
 }
 .callout .icon-badge {
-  display: block;
-  width: 4.25rem;
-  height: 4.25rem;
-  margin: 0 0 0.85rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
   color: var(--color-ink);
-}
-@media (min-width: 900px) {
-  .callout .icon-badge {
-    position: absolute;
-    left: -4.1rem;
-    top: 1.1rem;
-    margin: 0;
-  }
-}
-.callout-body h2 {
-  font-family: var(--font-heading);
-  margin: 0 0 0.5rem;
-  color: var(--color-accent-text);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 700;
 }
 .callout-body p:last-child { margin-bottom: 0; }
 
@@ -558,17 +539,17 @@ blockquote.scripture cite {
   border-bottom-color: var(--color-accent-text);
 }
 .callout-app-icon { width: 52px; height: 52px; border-radius: 22%; flex-shrink: 0; }
-.yv-callout-head {
+.callout-head {
   display: flex;
   align-items: center;
   gap: 0.9rem;
   margin-bottom: 1.1rem;
 }
-.yv-callout-head h2 {
+.callout-head h2 {
   font-family: var(--font-heading);
   margin: 0;
   color: var(--color-accent-text);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 700;
@@ -659,27 +640,74 @@ blockquote.scripture cite {
   gap: 0.9rem;
   margin-bottom: 0.75rem;
 }
-.resource-icon { width: 3rem; height: 3rem; flex-shrink: 0; color: var(--color-accent-text); }
+.resource-icon { width: 3rem; height: 3rem; flex-shrink: 0; color: var(--color-accent-text); object-fit: contain; border-radius: 0.4rem; }
 .resource-head h2 { margin: 0 !important; }
 
-.resource-list {
-  list-style: none;
-  padding: 0;
+.resource-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.1rem;
   margin: 0.5rem 0 1.5rem !important;
 }
-.resource-list li {
-  border-bottom: 1px solid var(--color-border);
-  padding: 0.65rem 0;
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none !important;
+  color: inherit;
+  transition: border-color 0.16s ease, background-color 0.16s ease;
 }
-.resource-list li:last-child { border-bottom: none; }
-.resource-placeholder {
-  font-style: italic;
+.resource-card:hover { border-color: var(--color-accent); background: var(--color-cream); }
+.resource-card-art {
+  display: block;
+  width: 100%;
+  height: 128px;
+  object-fit: cover;
+  background: var(--color-border);
+}
+.resource-card-body {
+  padding: 0.9rem 1.05rem 1.1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.resource-card-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  margin: 0 0 0.35rem;
   color: var(--color-ink);
-  opacity: 0.55;
-  text-decoration-style: dashed;
-  text-decoration-color: var(--color-border);
+  text-decoration: none;
 }
-.resource-placeholder:hover { opacity: 0.85; }
+.resource-card-desc {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--color-ink);
+  opacity: 0.78;
+  margin: 0;
+}
+.resource-card.is-placeholder {
+  border-style: dashed;
+  opacity: 0.6;
+}
+.resource-card.is-placeholder:hover { border-color: var(--color-border); background: #fff; }
+.resource-card.is-placeholder .resource-card-title { opacity: 0.85; }
+.resource-card.is-placeholder .resource-card-body { padding-top: 1.1rem; }
+.resource-card-placeholder-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink);
+  opacity: 0.5;
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
 
 .footnote {
   font-size: 0.85rem;
@@ -724,7 +752,7 @@ blockquote.scripture cite {
 }
 .day-nav a:hover .icon { color: #fff; }
 .day-nav a:hover .label { color: #fff; opacity: 0.85; }
-.day-nav .icon { width: 1.4rem; height: 1.4rem; color: var(--color-accent-text); flex-shrink: 0; }
+.day-nav .icon { width: 1.9rem; height: 1.9rem; color: var(--color-accent-text); flex-shrink: 0; }
 .day-nav .prev .icon { transform: scaleX(-1); }
 .day-nav .label {
   display: block;
@@ -748,7 +776,8 @@ blockquote.scripture cite {
   margin-top: 3rem;
   font-size: 0.92rem;
 }
-.site-footer a { color: #fff; text-decoration-color: var(--color-sage); }
+.site-footer a { color: #fff; text-decoration-color: var(--color-sage); transition: color 0.16s ease; }
+.site-footer a:hover { color: var(--color-sage); }
 .site-footer .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
 .site-footer h5 {
   font-family: var(--font-heading);

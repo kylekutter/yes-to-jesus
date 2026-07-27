@@ -41,9 +41,11 @@
           {% endfor %}
         {% elif blk.type == 'reflection' %}
           <div class="callout">
-            <img class="icon-badge" src="/img/icons/pause.svg" alt="">
-            <div class="callout-body">
+            <div class="callout-head">
+              <img class="icon-badge" src="/img/icons/pause.svg" alt="">
               <h2>Pause to Consider</h2>
+            </div>
+            <div class="callout-body">
               <p>{{ blk.text }}</p>
               {% if blk.journal_lines %}
               <ol class="journal-lines">
@@ -54,14 +56,19 @@
           </div>
         {% elif blk.type == 'prayer' %}
           <div class="callout">
-            <img class="icon-badge" src="/img/icons/praying-hands.svg" alt="">
-            <div class="callout-body"><h2>Pray With Your Own Words, or Try This</h2><p>{{ blk.text }}</p></div>
+            <div class="callout-head">
+              <img class="icon-badge" src="/img/icons/praying-hands.svg" alt="">
+              <h2>Pray With Your Own Words, or Try This</h2>
+            </div>
+            <div class="callout-body"><p>{{ blk.text }}</p></div>
           </div>
         {% elif blk.type == 'next_steps' %}
           <div class="callout">
-            <img class="icon-badge" src="/img/icons/next-arrow.svg" alt="">
-            <div class="callout-body">
+            <div class="callout-head">
+              <img class="icon-badge" src="/img/icons/next-arrow.svg" alt="">
               <h2>Possible Next Steps</h2>
+            </div>
+            <div class="callout-body">
               <ul class="day-list">{% for item in blk.entries %}<li>{{ item }}</li>{% endfor %}</ul>
             </div>
           </div>
@@ -85,7 +92,7 @@
     {% if next_day %}
     <a class="next" href="/day/{{ next_day.slug }}/"><img class="icon" src="/img/icons/next-arrow.svg" alt=""><span><span class="label">Day {{ next_day.day }}</span><span class="title">{{ next_day.title }}</span></span></a>
     {% else %}
-    <a class="next" href="/about/"><img class="icon" src="/img/icons/next-arrow.svg" alt=""><span><span class="label">You made it</span><span class="title">About this project</span></span></a>
+    <a class="next" href="/keep-growing/"><img class="icon" src="/img/icons/next-arrow.svg" alt=""><span><span class="label">You made it</span><span class="title">Keep Growing</span></span></a>
     {% endif %}
   </div>
 </nav>
