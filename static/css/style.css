@@ -112,11 +112,27 @@ img, svg { max-width: 100%; display: block; }
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  white-space: nowrap;
   border-bottom: 2px solid transparent;
   padding-bottom: 0.2rem;
   transition: color 0.16s ease, border-color 0.16s ease;
 }
 .site-nav a:hover { color: var(--color-accent-text); border-bottom-color: var(--color-accent-text); }
+
+@media (max-width: 640px) {
+  .site-nav {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 1.1rem;
+    padding-bottom: 0.3rem;
+    padding-right: 0.75rem;
+    scrollbar-width: none;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a { margin-left: 0; flex-shrink: 0; }
+}
 
 /* ---------- Hero (cover-inspired) ---------- */
 .hero {
